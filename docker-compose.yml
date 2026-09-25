@@ -1,0 +1,14 @@
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: jenkins-mcp-demo:latest
+    command: ["--httpKeepAliveTimeout=600000"] # this is to avoid the connection reset issue when using Jenkins for mcp server
+    container_name: jenkins
+    restart: unless-stopped
+
+    network_mode: host
+
+    volumes:
+      - ./jenkins_home:/var/jenkins_home

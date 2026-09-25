@@ -1,0 +1,11 @@
+{
+  "servers": {
+    "jenkins": {
+      "type": "http",
+      "url": "http://localhost:8080/mcp-server/mcp",
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    }
+  }
+}

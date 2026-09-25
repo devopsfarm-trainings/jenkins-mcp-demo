@@ -1,0 +1,43 @@
+simple overview
+
+```
+Give me a health overview of my Jenkins environment. Group jobs by folder and show me the current status of each job. Highlight anything that needs attention.
+```
+
+2. Find problems automatically
+
+```
+Analyze the latest builds across all Jenkins jobs. Find jobs with FAILURE, UNSTABLE, or ABORTED status. Group the results by folder and show the job name, build number, status, and build timestamp.
+```
+
+3. Investigate a failure
+```
+Investigate the latest failed build of <JOB_NAME>. Inspect the build details and console output. Identify the failure point, explain the likely root cause, and suggest the next troubleshooting steps.
+```
+
+4. Do cross-job analysis
+
+```
+Analyze the failed and unstable builds from the last hour. Look for common failure patterns across jobs and determine whether multiple failures could have a shared cause.
+```
+
+5. Let the AI take action
+
+After identifying failed jobs:
+
+```
+For each failed job, check whether the failure appears transient based on the recent build history. For jobs that appear transient, trigger a new build. Do not trigger builds for jobs where the failure appears persistent. Explain your decision for each job.
+```
+
+6. Verify the action
+
+After it triggers builds:
+
+```
+Monitor the builds I just triggered and report their final status. For any build that fails again, inspect the console log and explain what happened.
+```
+
+My faviorit combined prompt
+```
+Act as a Jenkins release engineer. Analyze the current Jenkins environment and identify jobs that need attention. For every failed or unstable job, inspect its recent build history and latest console output. Group failures that appear to have a common cause. For transient-looking failures, trigger a new build. Do not retry persistent failures. After triggering retries, report the final outcome and explain what you found. Do not modify jobs or configuration.
+```
